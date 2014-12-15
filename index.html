@@ -2,6 +2,9 @@
 <head>
 </head>
 <body onload="doloader()">
+<div>
+<h1  id="time"></h1>
+</div>
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script type="text/javascript">
@@ -15,12 +18,23 @@ function doloader(){
     var hueC = secs * (360/60);
     var satC = mins * (100/60);
     var lumC =  100 - (hours * (100/24));
+    var hueT = 360 - hueC;
+    var satT = 100 - satC;
+    var lumT = 100 - lumC;
+    // Do some Magics - Okay not really but still
+    if (hours < 10){hours = "0"+hours};
+    if (mins < 10){mins = "0"+mins};
+    if (secs < 10){secs = "0"+secs};
     
     
+    var currentTime = hours.toString()+" : "+mins.toString()+" : "+secs.toString();
+    $('#time').html(currentTime);
     
     var hexCode = "hsl("+hueC+","+satC+"%,"+lumC+"%)";
+    var textCode = "hsl("+hueT+","+satT+"%,"+lumT+"%)";
 	
 	document.body.style.background = hexCode;
+	document.getElementById('time').style.color = textCode;
 	
 	setTimeout(function(){doloader();}, 1000);
 }
