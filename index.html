@@ -9,6 +9,7 @@
 	top:50%;
 	height:250px;
 	margin-top: -125px;
+	font-family: "droid sans", sans-serif;
 }
 </style>
 </head>
@@ -42,7 +43,7 @@ function doloader(){
     $('#time').html(currentTime);
     
     var hexCode = "hsl("+hueC+","+satC+"%,"+lumC+"%)";
-    var textCode = "hsl("+hueT+","+satT+"%,"+lumT+"%)";
+    var textCode = "hsl(360,0%,"+lumT+"%)";
 	
 	document.body.style.background = hexCode;
 	document.getElementById('time').style.color = textCode;
